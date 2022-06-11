@@ -1,52 +1,84 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, reactive, onMounted } from "vue";
+const props = defineProps({
+  msg: String,
+})
 
-defineProps<{ msg: string }>()
+let isHot = ref(true);
+let newTodo = ref("");
+let doLists = ref<string[]>(["吃饭", "睡觉", "打豆豆"]);
 
-const count = ref(0)
+function debug(thing: any) {
+  return console.log(thing);
+}
+
+function handleAddItem() {
+
+  doLists.value.push(newTodo.value);
+  newTodo.value = "";
+}
+
+function handleDelAllList() {
+  doLists.value = []
+}
+
+function delThisList(index: number, e: MouseEvent) {
+  console.log((e.target as HTMLButtonElement).value);
+  doLists.value.splice(index, 1)
+}
+
+function baidu(e: KeyboardEvent) {
+  console.log(e.key)
+}
+
+onMounted(() => {
+})
+
+function changeHot() {
+  isHot.value = !isHot.value;
+}
+
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ props.msg }}</h1>
+  <h2>今天天气非常{{ isHot ? '炎热' : '冷' }}</h2>
+  <button @click="isHot = !isHot">切换天气</button>
+  <!-- <a href="http://baidu.com" @click.prevent="baidu">百度</a> -->
+  <div class="wrapper">
+    <div class="userInputArea">
+      <span>
+        <input v-model="newTodo" placeholder="请输入新的事件" @keyup.Shift="baidu" />
+        <button :disabled="newTodo === '' ? true : false" @click="handleAddItem">
+          添加
+        </button>
+      </span>
+    </div>
 
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
-    +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-  </p>
+    <div class="listShowArea">
+      <ul v-if="doLists.length !== 0">
+        <li v-for="(item, index) in doLists" :key="item">
+          {{ item }}
+          <button @click="delThisList(index, $event)">删除</button>
+        </li>
+      </ul>
+    </div>
 
-  <p>See <code>README.md</code> for more information.</p>
+    <div>
+      <button>清除所有</button>
+    </div>
 
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Docs
-    </a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-  </p>
-
-  <button type="button" @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+  </div>
 </template>
 
 <style scoped>
-a {
-  color: #42b983;
+.wrapper {
+  border: 1px solid black;
+  border-radius: 20px;
 }
 
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
-
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
+.listShowArea {
+  height: 100px;
+  overflow: auto;
 }
 </style>
