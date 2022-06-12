@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-const a = createApp(App).mount('#app');
-console.log(a);
+
+createApp(App).mount('#app')
+

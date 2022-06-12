@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue';
+import BlogText from './components/blogTxt.vue';
+import BlogTxt from './components/blogTxt.vue';
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <img v-show="false" alt="Vue logo" src="./assets/logo.png" />
+  <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
+  <BlogTxt />
 </template>
 
 <style>
