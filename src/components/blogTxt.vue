@@ -62,18 +62,3 @@ const nameList = ref([
   color: yellow;
 }
 </style>
-
-let obj = {
-  name:"韩"
-};
-
-obj.defineProperty(obj,"name",{
-  get(){
-    return obj.name
-  },
-  set(val) {
-    data.name = val
-  }
-})
-
-obj.name="小"

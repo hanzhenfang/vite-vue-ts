@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, Ref } from "vue";
 const props = defineProps({
   msg: String,
 })
 
-let myWindow = ref(window);
+const age = ref<Array<number | string>>([132, 2, 4, "1"]);
+let myWindow = ref<string[]>();
 
 const searchKeyWords = ref("");
 const newTodo = ref("");
@@ -51,7 +52,7 @@ watch(searchKeyWords, () => {
 <template>
   <h1>{{ props.msg }}</h1>
   <h2>今天天气非常</h2>
-  <button @click="myWindow.console.log(myWindow)">切换天气</button>
+  <!-- <button @click="myWindow.console.log(myWindow)">切换天气</button> -->
   <!-- <a href="http://baidu.com" @click.prevent="baidu">百度</a> -->
   <div class="wrapper">
 
@@ -75,7 +76,7 @@ watch(searchKeyWords, () => {
       <ul v-if="doLists.length !== 0">
         <li v-for="(item, index) in filLists" :key="item">
           {{ item }}
-          <button @click="delThisList(index, $event)">删除</button>
+          <button @click="($event) => delThisList(index, $event)">删除</button>
         </li>
       </ul>
     </div>
