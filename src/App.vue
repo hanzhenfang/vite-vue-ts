@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+import formTextVue from './components/formText.vue';
 import HelloWorld from './components/HelloWorld.vue';
 import BlogText from './components/blogTxt.vue';
 import BlogTxt from './components/blogTxt.vue';
@@ -24,7 +25,7 @@ const routers = useRouter();
   <img v-show="false" alt="Vue logo" src="./assets/logo.png" />
   <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
   <!-- <BlogTxt /> -->
-  <Modal ref='sonModal' />
+  <!-- <Modal ref='sonModal' />
   <button @click="showChildren">我是父组件的按钮</button>
   <router-link to="/">heloWorld</router-link>
   <router-link :to="{ name: 'blogTxt', query: { id: 1 } }">blogTxt</router-link>
@@ -35,7 +36,8 @@ const routers = useRouter();
   </div>
   <arrayTextVue>
     韩振方
-  </arrayTextVue>
+  </arrayTextVue> -->
+  <formTextVue/>
 </template>
 
 <style>

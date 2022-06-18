@@ -3,7 +3,13 @@ import { ref } from "vue";
 
 const userIput = ref<number>();
 
-
+function mapTable(number:number){
+for(let i=0;i<number;i++){
+for(let j=0;j<number;j++){
+  
+}
+}
+}
 
 </script>
 
