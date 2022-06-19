@@ -17,6 +17,8 @@ const showChildren = () => {
 };
 
 const routers = useRouter();
+
+comState.cahngeName();
 </script>
 
 <template>
@@ -35,7 +37,8 @@ const routers = useRouter();
   <arrayTextVue>
     韩振方
   </arrayTextVue> -->
-  <formTextVue />
+  <formTextVue fatherName="韩振方" :fatherAge="18" :fatherChildren="13"/>
+  {{comState.userName}}
 </template>
 
 <style>

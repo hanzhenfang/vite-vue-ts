@@ -1,11 +1,24 @@
 <script setup lang="ts">
-import { ref ,onMounted,onBeforeMount,onBeforeUnmount} from "vue";
+import { 
+  ref,
+  onMounted,
+onBeforeMount,
+onBeforeUnmount,
+getCurrentInstance
+} 
+from "vue";
 const userName = ref<string>();
 const password = ref<number>();
 const gameName = ref<string>("英雄联盟");
 const sex = ref<string>("man");
 const hobby = ref<Array<string>>([]);
 const time  =ref()
+
+const props =defineProps<{
+fatherName:String,
+fatherAge:Number,
+fatherChildren:number,
+}>()
 
 function updateUserInfo() {
   console.log("哈哈");
@@ -17,22 +30,28 @@ function getNowTime(){
   },1000)
 }
 
+function changeFatherName(){
+  
+}
+
 onBeforeMount(()=>{
   setTimeout(()=>{
     // debugger
   })
+  // const instance = getCurrentInstance();
+  // console.log(instance)
 })
 
 onMounted(()=>{
-  getNowTime()
+  const instance = getCurrentInstance();
+ (instance?.refs.myButton as HTMLButtonElement).innerHTML="不确定"
 })
-
 
 </script>
 
 <template>
   <div>
-    <form @submit="updateUserInfo">
+    <form @submit.prevent="updateUserInfo">
       <div class="space">账号:<input v-model="userName" /></div>
       <div class="space">
         密码:<input 
@@ -60,10 +79,12 @@ onMounted(()=>{
           <option value="地下城与勇士">地下城与勇士</option>
         </select>
       </div>
-      <button>确定</button>
+      <button ref="myButton">确定</button>
     </form>
     <div>
-      现在的时间是:{{time}}
+      <h4>现在的时间是:{{time}}</h4>
+      <h4>我是父亲传来的名字:{{props.fatherName}}</h4>
+      <h4>我是父亲传来的年龄:{{props.fatherAge}}</h4>
     </div>
   </div>
 </template>
