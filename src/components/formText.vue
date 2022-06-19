@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref ,onMounted,onBeforeMount} from "vue";
+import { ref ,onMounted,onBeforeMount,onBeforeUnmount} from "vue";
 const userName = ref<string>();
 const password = ref<number>();
 const gameName = ref<string>("英雄联盟");
@@ -26,7 +26,6 @@ onBeforeMount(()=>{
 onMounted(()=>{
   getNowTime()
 })
-
 
 
 </script>

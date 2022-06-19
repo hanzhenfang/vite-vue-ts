@@ -1,24 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
-import formTextVue from './components/formText.vue';
-import HelloWorld from './components/HelloWorld.vue';
-import BlogText from './components/blogTxt.vue';
-import BlogTxt from './components/blogTxt.vue';
-import Modal from './components/modal.vue';
-import { useState } from './store/commonState';
-import { useRouter } from 'vue-router';
-import arrayTextVue from './components/arrayText.vue';
+import { ref } from "vue";
+import formTextVue from "./components/formText.vue";
+import HelloWorld from "./components/HelloWorld.vue";
+import BlogText from "./components/blogTxt.vue";
+import BlogTxt from "./components/blogTxt.vue";
+import Modal from "./components/modal.vue";
+import { useState } from "./store/commonState";
+import { useRouter } from "vue-router";
+import arrayTextVue from "./components/arrayText.vue";
 
 const sonModal = ref<InstanceType<typeof Modal> | null>(null);
 const comState = useState();
 console.log(comState.userName);
 const showChildren = () => {
-  sonModal.value?.handleShow()
-}
+  sonModal.value?.handleShow();
+};
 
 const routers = useRouter();
-
 </script>
 
 <template>
@@ -37,7 +35,7 @@ const routers = useRouter();
   <arrayTextVue>
     韩振方
   </arrayTextVue> -->
-  <formTextVue/>
+  <formTextVue />
 </template>
 
 <style>
