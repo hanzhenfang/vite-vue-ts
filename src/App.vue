@@ -8,7 +8,7 @@ import Modal from "./components/modal.vue";
 import { useState } from "./store/commonState";
 import { useRouter } from "vue-router";
 import arrayTextVue from "./components/arrayText.vue";
-import todolistVue from "./components/todolist.vue";
+import todolist from './todoList/index.vue'
 
 const sonModal = ref<InstanceType<typeof Modal> | null>(null);
 const comState = useState();
@@ -45,31 +45,13 @@ comState.cahngeName();
   </div>
   <formTextVue fatherName="韩振方" :fatherAge="18" :fatherChildren="13" />
   {{ comState.userName }} -->
-  <todolistVue></todolistVue>
+<todolist></todolist>
 </template>
 
 <style lang="less">
-@aaaa :yellow;
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+width: 100vw;
+height: 100vh;
 }
 
-#active-link {
-  color: aaaa;
-}
-
-.father {
-  color: @aaaa;
-  div {
-    font-size: 20px;
-  }
-  h2 {
-    color: @aaaa;
-  }
-}
 </style>
