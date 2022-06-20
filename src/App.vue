@@ -8,6 +8,7 @@ import Modal from "./components/modal.vue";
 import { useState } from "./store/commonState";
 import { useRouter } from "vue-router";
 import arrayTextVue from "./components/arrayText.vue";
+import todolistVue from "./components/todolist.vue";
 
 const sonModal = ref<InstanceType<typeof Modal> | null>(null);
 const comState = useState();
@@ -23,6 +24,7 @@ comState.cahngeName();
 
 <template>
   <img v-show="true" alt="Vue logo" src="./assets/logo.png" />
+
   <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
   <!-- <BlogTxt /> -->
   <!-- <Modal ref='sonModal' />
@@ -37,11 +39,17 @@ comState.cahngeName();
   <arrayTextVue>
     韩振方
   </arrayTextVue> -->
-  <formTextVue fatherName="韩振方" :fatherAge="18" :fatherChildren="13"/>
-  {{comState.userName}}
+  <!-- <div>
+    我没用less
+    <h2>我是没less的div</h2>
+  </div>
+  <formTextVue fatherName="韩振方" :fatherAge="18" :fatherChildren="13" />
+  {{ comState.userName }} -->
+  <todolistVue></todolistVue>
 </template>
 
-<style>
+<style lang="less">
+@aaaa :yellow;
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -52,6 +60,16 @@ comState.cahngeName();
 }
 
 #active-link {
-  color: red;
+  color: aaaa;
+}
+
+.father {
+  color: @aaaa;
+  div {
+    font-size: 20px;
+  }
+  h2 {
+    color: @aaaa;
+  }
 }
 </style>

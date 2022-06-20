@@ -1,7 +1,8 @@
 <script setup lang ="ts">
 import { ref } from 'vue';
+import { B } from '../utils/vimtext';
 
-const isShow = ref<boolean>(true);
+const isShow = ref<Boolean>(true);
 
 const handleShow = () => {
   isShow.value = !isShow.value
