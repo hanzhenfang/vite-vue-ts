@@ -18,7 +18,8 @@ function addItem(e: Event) {
     const todoObj = { id: nanoid(), title: uerInput, done: false };
     todos.push(todoObj);
   } else {
-    console.log("请输入正确的值");
+    console.log("请输入正确的值呀1");
+
   }
 }
 
