@@ -23,7 +23,7 @@ comState.cahngeName();
 </script>
 
 <template>
-  <img v-show="true" alt="Vue logo" src="./assets/logo.png" />
+  <!-- <img v-show="true" alt="Vue logo" src="./assets/logo.png" /> -->
 
   <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
   <!-- <BlogTxt /> -->
