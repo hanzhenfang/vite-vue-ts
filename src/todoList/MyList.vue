@@ -7,7 +7,8 @@ defineProps<{
     title: string;
     done: boolean;
   }[],
-  checkTodo:Function
+  checkTodo:Function,
+  deleteCurrentItem:Function
 }>();
 
 </script>
@@ -15,7 +16,13 @@ defineProps<{
 <template>
   <div>
     <ul>
-      <MyItem v-for="todoItem in todos" :todoItem="todoItem" :checkTodo="checkTodo"></MyItem>
+      <MyItem 
+      v-for="todoItem in todos" 
+      :todoItem="todoItem" 
+      :checkTodo="checkTodo"
+      :deleteCurrentItem="deleteCurrentItem"
+      >
+      </MyItem>
     </ul>
   </div>
 </template>

@@ -24,12 +24,20 @@ function addItem(e: Event) {
 }
 
 function checkTodo(id: string) {
-  console.log("@@@", id);
   todos.forEach(item => {
     if (item.id === id) {
       item.done = !item.done;
     }
   });
+}
+
+function deleteCurrentItem(id:string){
+  console.log(id)
+  let currentItemIndex=todos.findIndex(item=>item.id===id)
+return [
+  [...todos.slice(0,currentItemIndex)],
+  [...todos.slice(currentItemIndex)]
+  ]
 }
 </script>
 
@@ -37,10 +45,13 @@ function checkTodo(id: string) {
   <div class="wrapper flex flex-col justify-between">
     <div>
       <MyHeader :addItem="addItem"></MyHeader>
-      <MyList :todos="todos" :checkTodo="checkTodo"></MyList>
+      <MyList :todos="todos" 
+      :checkTodo="checkTodo"
+      :deleteCurrentItem="deleteCurrentItem"
+      ></MyList>
     </div>
     <div>
-      <MyFooter></MyFooter>
+      <MyFooter :todos="todos"></MyFooter>
     </div>
   </div>
 </template>
