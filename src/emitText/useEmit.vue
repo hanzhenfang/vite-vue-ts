@@ -10,6 +10,8 @@ const name = ref<String>("韩振方")
 
 <template>
   <div id="wrapper">
+    <slot name="demo1"></slot>
+    <slot name="demo2"></slot>
     <button 
     @click="emit('myDIY',name)"
     class="border-2 border-indigo-600"
