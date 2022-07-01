@@ -20,7 +20,7 @@ const changeColor = (e: MouseEvent) => {
 }
 
 const nameList = ref([
-  { id: 1, name: "韩振方", age: 18 },
+  { id: 1, name: "韩振方",guanxi:"父亲" ,age: 18 },
   { id: 2, name: "何楠", age: 19 },
   { id: 3, name: "文豪", age: 3 }
 ]);

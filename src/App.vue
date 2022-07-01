@@ -62,11 +62,15 @@ v-on:myDIY="getMySonName"
 @click="tips"
 ></localStorage> -->
   <div>
-    <h1>我是App组件</h1>
 
+    <h1>我是App组件</h1>
+    
     <slotText v-slot="{slotProps}">
      <h1>{{ slotProps.name}}</h1> 
     </slotText>
+   <router-view></router-view> 
+    <router-link :to="{name:'blogTxt'}">去博客</router-link>
+    <router-link to="/mulTable">heloWorld</router-link>
   </div>
 </template>
 

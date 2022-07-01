@@ -37,6 +37,5 @@ export const router = createRouter({
       path: '/:pathMatch(.*)*',
       redirect: '/404'
     }
-  ],
-  linkActiveClass: "active-link"
+  ]
 })
