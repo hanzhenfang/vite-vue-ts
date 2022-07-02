@@ -28,6 +28,8 @@ const nameList = ref([
 </script>
 
 <template>
+<div>
+
 
   <div>
     <h1 :style="{ color: textColor }">
@@ -46,6 +48,7 @@ const nameList = ref([
   </div>
   <button>按照年龄升序</button>
   <button>按照年龄降序</button>
+  </div>
 </template>
 
 

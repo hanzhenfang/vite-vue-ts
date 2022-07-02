@@ -13,6 +13,8 @@ import localStorage from "./localStorage/localStorage.vue";
 import useEmit from "./emitText/useEmit.vue";
 import pubsubText from "./pubSubJS/pubsubText.vue";
 import slotText from "./slot/slotText.vue";
+import Text from "./components/text/Text.vue";
+
 
 const sonModal = ref<InstanceType<typeof Modal> | null>(null);
 const comState = useState();
@@ -32,54 +34,13 @@ function getChildrenName(sonName: string) {
 </script>
 
 <template>
-  <!-- <img v-show="true" alt="Vue logo" src="./assets/logo.png" /> -->
+<div>
+  <router-view>
 
-  <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
-  <!-- <BlogTxt /> -->
-  <!-- <Modal ref='sonModal' />
-  <button @click="showChildren">我是父组件的按钮</button>
-  <router-link to="/">heloWorld</router-link>
-  <router-link :to="{ name: 'blogTxt', query: { id: 1 } }">blogTxt</router-link>
-  <button @click="$router.push({ path: '/11' })">跳转404</button>
-  <button @click="$router.push({ name: 'mulTable' })">乘法表页面</button>
-  <div>
-    <router-view></router-view>
-  </div>
-  <arrayTextVue>
-    韩振方
-  </arrayTextVue> -->
-  <!-- <div>
-    我没用less
-    <h2>我是没less的div</h2>
-  </div>
-  <formTextVue fatherName="韩振方" :fatherAge="18" :fatherChildren="13" />
-  {{ comState.userName }} -->
-  <!-- <todolist></todolist> -->
-  <!-- <h1>{{childrenName1}}</h1>
-<localStorage 
-class="absolute m-auto top-0 left-0 bottom-0 right-0 w-[200px] h-[200px]"
-v-on:myDIY="getMySonName"
-@click="tips"
-></localStorage> -->
-  <div>
+  </router-view>
+</div>
 
-    <!-- <h1>我是App组件</h1>
-    
-    <slotText v-slot="{slotProps}">
-     <h1>{{ slotProps.name}}</h1> 
-    </slotText> -->
-  <router-view v-slot="{ Component }">
-  <transition name="fade" mode="out-in">
-
-    <component :is="Component" />
-    
-  </transition>
-</router-view>
-<br>
-    <router-link :to="{name:'blogTxt'}">去博客</router-link><br>
-    <router-link to="/mulTable">99乘法表</router-link><br>
-    <router-link to="{name:'404page'}">404</router-link>
-  </div>
+  
 </template>
 
 <style lang="less">
@@ -90,25 +51,29 @@ v-on:myDIY="getMySonName"
   justify-content: center;
   align-items: center;
 }
-.fade-enter-active{
-  animation:fang 1s ease
-}
-.fade-leave-active {
-  animation:fang 1s ease reverse
-}
-
-// .fade-enter-from{
-//  transform:translateX(-100%)
-//  }
-// .fade-leave-to {
-//   transform:translateX(0)
+// .fade-enter-active {
+//   transition:  2s ease;
 // }
-@keyframes fang {
-  from{
-transform:translateX(-100%)
-  }
-  to{
- transform:translateX(0)
-  }
+.fade-leave-active {
+  transition:  0.3s ease;
 }
+.fade-enter-active {
+  transition: 0.3s linear;
+}
+.fade-enter-to,.fade-leave-from {
+ transform:translateX(0);
+opacity: 1;
+ }
+.fade-leave-to,.fade-enter-from {
+  transform:translateX(-100%);
+  opacity:0
+}
+// @keyframes fang {
+//   from{
+// transform:translateX(-100%)
+//   }
+//   to{
+//  transform:translateX(0)
+//   }
+// }
 </style>
