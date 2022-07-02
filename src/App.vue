@@ -35,12 +35,17 @@ function getChildrenName(sonName: string) {
 
 <template>
 <div>
-  <router-view>
 
+
+  <router-view v-slot="{Component}">
+    <transition name="fang" mode="out-in">
+  <component :is="Component"></component>
+    </transition>
   </router-view>
-</div>
-
   
+
+
+</div>
 </template>
 
 <style lang="less">
@@ -76,4 +81,17 @@ opacity: 1;
 //  transform:translateX(0)
 //   }
 // }
+
+//enter:进入,from:从哪里
+//这个类名代表着，你的组件挂载之前，在哪个位置
+.fang-enter-from {
+transform: translateX(-100%);
+}
+.fang-enter-to {
+  transform: translateX(0);
+}
+.fang-enter-active {
+  transition: 2s ease ;
+}
+
 </style>
