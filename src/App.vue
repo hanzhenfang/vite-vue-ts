@@ -63,14 +63,22 @@ v-on:myDIY="getMySonName"
 ></localStorage> -->
   <div>
 
-    <h1>我是App组件</h1>
+    <!-- <h1>我是App组件</h1>
     
     <slotText v-slot="{slotProps}">
      <h1>{{ slotProps.name}}</h1> 
-    </slotText>
-   <router-view></router-view> 
-    <router-link :to="{name:'blogTxt'}">去博客</router-link>
-    <router-link to="/mulTable">heloWorld</router-link>
+    </slotText> -->
+  <router-view v-slot="{ Component }">
+  <transition name="fade" mode="out-in">
+
+    <component :is="Component" />
+    
+  </transition>
+</router-view>
+<br>
+    <router-link :to="{name:'blogTxt'}">去博客</router-link><br>
+    <router-link to="/mulTable">99乘法表</router-link><br>
+    <router-link to="{name:'404page'}">404</router-link>
   </div>
 </template>
 
@@ -81,5 +89,26 @@ v-on:myDIY="getMySonName"
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.fade-enter-active{
+  animation:fang 1s ease
+}
+.fade-leave-active {
+  animation:fang 1s ease reverse
+}
+
+// .fade-enter-from{
+//  transform:translateX(-100%)
+//  }
+// .fade-leave-to {
+//   transform:translateX(0)
+// }
+@keyframes fang {
+  from{
+transform:translateX(-100%)
+  }
+  to{
+ transform:translateX(0)
+  }
 }
 </style>
