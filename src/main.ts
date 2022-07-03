@@ -8,6 +8,7 @@ import './assets/tailwindcss.css'
 let app = createApp(App);
 app.use(createPinia());
 app.use(router);
+console.log('app',app,router)
 
 app.mount('#app')
 

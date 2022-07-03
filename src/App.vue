@@ -36,15 +36,13 @@ function getChildrenName(sonName: string) {
 <template>
 <div>
 
-
   <router-view v-slot="{Component}">
-    <transition name="fang" mode="out-in">
+    <transition name="fang" mode="out-in" appear>
   <component :is="Component"></component>
     </transition>
   </router-view>
-  
-
-
+  <router-link :to="{name:'gerenzhuye'}">个人主页</router-link>
+  <router-link to="/pengyouquan">朋友圈</router-link>
 </div>
 </template>
 

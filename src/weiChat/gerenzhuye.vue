@@ -1,4 +1,11 @@
 <script lang="ts" setup>
+import { onBeforeUnmount } from 'vue';
+
+onBeforeUnmount(()=>{
+  console.log("我要被卸载了");
+  async ()=> alert("我要被卸载了")
+})
+
 </script>
 
 <template>

@@ -8,7 +8,7 @@ import Faxian from '@/weiChat/faxian.vue';
 import Pengyouquan from '@/weiChat/pengyouquan.vue';
 import Gerenzhuye from '@/weiChat/gerenzhuye.vue';
 
-export const router = createRouter({
+export  const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
