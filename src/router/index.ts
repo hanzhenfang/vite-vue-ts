@@ -7,6 +7,7 @@ import mulTable from '@/components/mulTable.vue';
 import Faxian from '@/weiChat/faxian.vue';
 import Pengyouquan from '@/weiChat/pengyouquan.vue';
 import Gerenzhuye from '@/weiChat/gerenzhuye.vue';
+import hanzhenfang from '@/weiChat/gerenzhuye.vue';
 
 export  const router = createRouter({
   history: createWebHistory(),
@@ -14,7 +15,15 @@ export  const router = createRouter({
     {
       path: '/',
       name: "gerenzhuye",
-      component: Gerenzhuye
+      component: Gerenzhuye,
+      props:{id1:'111'},
+      children:[
+        {
+          path: 'mulTable',
+          name: 'mulTable',
+          component: mulTable
+        },
+      ]
     },
     {
       path: '/blogTxt',
@@ -25,11 +34,6 @@ export  const router = createRouter({
       path: '/modal',
       name: "modal",
       component: modal,
-    },
-    {
-      path: '/mulTable',
-      name: 'mulTable',
-      component: mulTable
     },
     {
       path: '/gerenzhuye',
@@ -56,4 +60,11 @@ export  const router = createRouter({
     //   redirect: '/404'
     // }
   ]
+})
+
+router.beforeEach((to,from,next)=>{
+  console.log('to',to)
+  console.log('from',from)
+  console.log('next',next)
+  next()
 })
