@@ -1,4 +1,12 @@
 <script lang="ts" setup>
+import { onMounted } from 'vue';
+import {useRoute} from 'vue-router'
+
+onMounted(()=>{
+console.log('11useRoute()',useRoute())
+
+})
+
 </script>
 
 <template>

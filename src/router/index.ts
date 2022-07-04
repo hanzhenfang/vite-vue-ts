@@ -7,6 +7,8 @@ import mulTable from '@/components/mulTable.vue';
 import Faxian from '@/weiChat/faxian.vue';
 import Pengyouquan from '@/weiChat/pengyouquan.vue';
 import Gerenzhuye from '@/weiChat/gerenzhuye.vue';
+import hanzhenfang from '@/weiChat/gerenzhuye.vue';
+import { E } from '../utils/vimtext';
 
 export  const router = createRouter({
   history: createWebHistory(),
@@ -14,7 +16,15 @@ export  const router = createRouter({
     {
       path: '/',
       name: "gerenzhuye",
-      component: Gerenzhuye
+      component: Gerenzhuye,
+      props:{id1:'111'},
+      children:[
+        {
+          path: 'mulTable',
+          name: 'mulTable',
+          component: mulTable
+        },
+      ]
     },
     {
       path: '/blogTxt',
@@ -27,11 +37,6 @@ export  const router = createRouter({
       component: modal,
     },
     {
-      path: '/mulTable',
-      name: 'mulTable',
-      component: mulTable
-    },
-    {
       path: '/gerenzhuye',
       name: "gerenzhuye",
       component: Gerenzhuye,
@@ -39,6 +44,7 @@ export  const router = createRouter({
     {
       path: '/pengyouquan',
       name: "pengyouquan",
+      meta:{isAuth:false},
       component: Pengyouquan,
     },
     {
@@ -56,4 +62,16 @@ export  const router = createRouter({
     //   redirect: '/404'
     // }
   ]
+})
+
+router.beforeEach((to,from,next)=>{
+ console.log('to',to)
+  if(to.fullPath==="/pengyouquan") {
+    if(to.meta.isAuth)
+    next()
+    else{
+      alert('密码错误')
+    }
+  }
+  else next()
 })

@@ -14,7 +14,7 @@ import useEmit from "./emitText/useEmit.vue";
 import pubsubText from "./pubSubJS/pubsubText.vue";
 import slotText from "./slot/slotText.vue";
 import Text from "./components/text/Text.vue";
-
+import Huakuai from "./components/text/Huakuai.vue";
 
 const sonModal = ref<InstanceType<typeof Modal> | null>(null);
 const comState = useState();
@@ -34,17 +34,10 @@ function getChildrenName(sonName: string) {
 </script>
 
 <template>
-<div>
-
-  <router-view v-slot="{Component}">
-    <transition name="fang" mode="out-in" appear>
-  <component :is="Component"></component>
-    </transition>
-  </router-view>
-  <router-link :to="{name:'gerenzhuye'}">个人主页</router-link>
-  <router-link to="/pengyouquan">朋友圈</router-link>
-</div>
+ <Huakuai />
 </template>
+
+
 
 <style lang="less">
 #app {
@@ -58,18 +51,20 @@ function getChildrenName(sonName: string) {
 //   transition:  2s ease;
 // }
 .fade-leave-active {
-  transition:  0.3s ease;
+  transition: 0.3s ease;
 }
 .fade-enter-active {
   transition: 0.3s linear;
 }
-.fade-enter-to,.fade-leave-from {
- transform:translateX(0);
-opacity: 1;
- }
-.fade-leave-to,.fade-enter-from {
-  transform:translateX(-100%);
-  opacity:0
+.fade-enter-to,
+.fade-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+.fade-leave-to,
+.fade-enter-from {
+  transform: translateX(-100%);
+  opacity: 0;
 }
 // @keyframes fang {
 //   from{
@@ -83,13 +78,12 @@ opacity: 1;
 //enter:进入,from:从哪里
 //这个类名代表着，你的组件挂载之前，在哪个位置
 .fang-enter-from {
-transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 .fang-enter-to {
   transform: translateX(0);
 }
 .fang-enter-active {
-  transition: 2s ease ;
+  transition: 2s ease;
 }
-
 </style>
