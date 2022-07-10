@@ -4,7 +4,10 @@ import {useRoute} from 'vue-router'
 
 onMounted(()=>{
 console.log('11useRoute()',useRoute())
+<<<<<<< HEAD
 
+=======
+>>>>>>> c95133e87f861fc83129aec88872a57dd49640b9
 })
 
 </script>
