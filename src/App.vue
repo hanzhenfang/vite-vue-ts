@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref ,onMounted} from "vue";
 import formTextVue from "./components/formText.vue";
 import HelloWorld from "./components/HelloWorld.vue";
 import BlogText from "./components/blogTxt.vue";
@@ -31,6 +31,16 @@ const sonNames = ref<string>("");
 function getChildrenName(sonName: string) {
   sonNames.value = sonName;
 }
+
+const numberArray = ref(["1",2,"3",44,55])
+
+const arrayBBB= numberArray.value.filter((item)=>{
+  return item==="1" || item ==="3"
+})
+
+onMounted(() => {
+  console.log(arrayBBB)
+})
 </script>
 
 <template>
