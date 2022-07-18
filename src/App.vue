@@ -15,6 +15,8 @@ import pubsubText from "./pubSubJS/pubsubText.vue";
 import slotText from "./slot/slotText.vue";
 import Text from "./components/text/Text.vue";
 import Huakuai from "./components/text/Huakuai.vue";
+import tuozhuai from "./components/text/tuozhuai.vue";
+
 
 const sonModal = ref<InstanceType<typeof Modal> | null>(null);
 const comState = useState();
@@ -44,7 +46,7 @@ onMounted(() => {
 </script>
 
 <template>
- <Huakuai />
+ <tuozhuai/>
 </template>
 
 

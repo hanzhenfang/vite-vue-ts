@@ -6,6 +6,10 @@ name:string
 function log (){
 console.log(props.name)
 }
+
+const xhr = new XMLHttpRequest()
+xhr.open
+
 </script>
 
 <template>

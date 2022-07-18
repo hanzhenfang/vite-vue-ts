@@ -51,6 +51,10 @@ function handelClickItem(currentItem: Action) {
     .forEach((itme) => (itme.style.fontSize = "small"));
 }
 
+function userTouchStart (event:TouchEvent){
+console.log('event',event)
+}
+
 onMounted(() => {
   setTimeout(() => {
     handelClickItem(0);
@@ -70,6 +74,7 @@ onMounted(() => {
       v-for="item in data"
       class="mr-[1px]"
       :key="item.id"
+      @touchstart="userTouchStart($event)"
       @click="handelClickItem(item.action)"
     >
       {{ item.name }}
