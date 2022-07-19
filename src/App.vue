@@ -16,6 +16,7 @@ import slotText from "./slot/slotText.vue";
 import Text from "./components/text/Text.vue";
 import Huakuai from "./components/text/Huakuai.vue";
 import tuozhuai from "./components/text/tuozhuai.vue";
+import {createNewDB} from "./components/text/indexDB"
 
 
 const sonModal = ref<InstanceType<typeof Modal> | null>(null);
@@ -40,6 +41,7 @@ const arrayBBB= numberArray.value.filter((item)=>{
   return item==="1" || item ==="3"
 })
 
+
 onMounted(() => {
   console.log(arrayBBB)
 })
@@ -47,6 +49,7 @@ onMounted(() => {
 
 <template>
  <tuozhuai/>
+ <button @click="createNewDB">打开indexDB</button>
 </template>
 
 

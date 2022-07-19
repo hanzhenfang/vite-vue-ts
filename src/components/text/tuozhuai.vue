@@ -23,9 +23,7 @@ const delBtnInitStyle = computed(() => {
  */
 function userTouchStart(event: TouchEvent) {
   //1.获取用户触摸时（还未开始滑动）的点
-  console.log('event',event)
   const touchPoint = event.changedTouches[0];
-  console.log('touchPoint',touchPoint)
   //2.获取用户触摸时的X坐标
   touchStartX.value = touchPoint.clientX;
 }
