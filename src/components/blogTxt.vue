@@ -1,10 +1,12 @@
-<script setup lang="ts">
-import { ref, computed, ComputedRef } from 'vue'
+<script setup lang="ts"
+import { ref, computed, ComputedRef, provide } from 'vue'
 
 const colorMenu = ref(["red", "blue", "yellow"])
-const index = ref(Math.floor(Math.random() * 3))
+const index = ref(Math.floor(Math.random() * 3rl
 
 let textColor = ref("");
+
+provide(changeColor, 'dev')
 
 const changeColor = (e: MouseEvent) => {
   switch ((e.target as HTMLButtonElement).innerHTML) {
