@@ -18,8 +18,8 @@ const data = ref<Array<DataType>>([
 ]);
 
 //NOTE: 下面是初始化时的滑块位置，后期有额外的tab，需要额外添加
-const INIT_OFFSET = ref<Array<number>>([32, 88]);
-const initOffset = ref<number>(INIT_OFFSET[1]);
+const INIT_OFFSET:number[]=[32, 88];
+const initOffset = ref<number>(INIT_OFFSET[2]);
 const wrapper = ref<HTMLElement>();
 const currentItemStyle = ref();
 
@@ -33,7 +33,7 @@ const huakuaiStyle = computed(() => {
 
 function handelClickItem(currentItem: Action) {
   // 1.拿到用户点击某一元素的索引值
-  const tabsList = Array.from(wrapper.value.querySelectorAll("div"));
+  const tabsList = Array.from(wrapper.value!.querySelectorAll("div"));
   //2.上面拿到wrapper所有div（包括滑块div），这里不需要滑块div
   const tabs = tabsList.slice(0, tabsList.length - 1);
   //3.用传入的索引值来拿到用户点击的元素dom树

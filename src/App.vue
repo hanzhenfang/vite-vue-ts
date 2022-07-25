@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref ,onMounted} from "vue";
+import { ref, watch, onMounted } from "vue";
 import formTextVue from "./components/formText.vue";
 import HelloWorld from "./components/HelloWorld.vue";
 import BlogText from "./components/blogTxt.vue";
@@ -16,8 +16,8 @@ import slotText from "./slot/slotText.vue";
 import Text from "./components/text/Text.vue";
 import Huakuai from "./components/text/Huakuai.vue";
 import tuozhuai from "./components/text/tuozhuai.vue";
-import {createNewDB} from "./components/text/indexDB"
-
+import { createNewDB } from "./components/text/indexDB";
+import Shuangye from "./components/text/shuangye.vue"
 
 const sonModal = ref<InstanceType<typeof Modal> | null>(null);
 const comState = useState();
@@ -35,29 +35,23 @@ function getChildrenName(sonName: string) {
   sonNames.value = sonName;
 }
 
-const numberArray = ref(["1",2,"3",44,55])
+const numberArray = ref(["1", 2, "3", 44, 55]);
 
-const arrayBBB= numberArray.value.filter((item)=>{
-  return item==="1" || item ==="3"
-})
+const arrayBBB = numberArray.value.filter((item) => {
+  return item === "1" || item === "3";
+});
 
 
-onMounted(() => {
-  console.log(arrayBBB)
-})
 </script>
 
 <template>
- <tuozhuai/>
- <button @click="createNewDB">打开indexDB</button>
+<Shuangye/>
 </template>
-
-
 
 <style lang="less">
 #app {
-  width: 100vw;
-  height: 100vh;
+  // width: 100vw;
+  // height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
