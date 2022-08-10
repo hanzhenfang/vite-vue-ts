@@ -17,7 +17,7 @@ import Text from "./components/text/Text.vue";
 import Huakuai from "./components/text/Huakuai.vue";
 import tuozhuai from "./components/text/tuozhuai.vue";
 import { createNewDB } from "./components/text/indexDB";
-import Shuangye from "./components/text/shuangye.vue"
+import Shuangye from "./components/text/shuangye.vue";
 
 const sonModal = ref<InstanceType<typeof Modal> | null>(null);
 const comState = useState();
@@ -40,14 +40,10 @@ const numberArray = ref(["1", 2, "3", 44, 55]);
 const arrayBBB = numberArray.value.filter((item) => {
   return item === "1" || item === "3";
 });
-
-onMounted(()=>{
-  createNewDB()
-})
 </script>
 
 <template>
-<Shuangye/>
+  <Shuangye />
 </template>
 
 <style lang="less">
