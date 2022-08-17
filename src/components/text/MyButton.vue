@@ -12,6 +12,7 @@ xhr.open;
 </script>
 
 <template>
+  <!-- 嗷嗷 -->
   <button @click="log()" class="border-double border-4 border-indigo-600">
     批量打印按钮aaa
   </button>
