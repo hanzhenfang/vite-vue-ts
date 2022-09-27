@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, type CSSProperties } from "vue";
+import {
+  ref,
+  computed,
+  toRefs,
+  watch,
+  onMounted,
+  type CSSProperties,
+} from "vue";
 import formTextVue from "./components/formText.vue";
 import HelloWorld from "./components/HelloWorld.vue";
 import Modal from "./components/modal.vue";
@@ -19,43 +26,13 @@ import Shuangye from "./components/text/shuangye.vue";
 import createToast from "./components/toast/createToast";
 import Toast from "./components/toast/createToast";
 import OffsetWidth from "./components/toast/offsetWidth.vue";
-
-import { ToastCreator } from "./components/toast/toastCreator";
-
-const gridNumber = ref<number>(5);
-
-const testWrapper = computed<CSSProperties>(() => {
-  return {
-    display: `grid`,
-    gridTemplateColumns: `repeat(${gridNumber.value},20px)`,
-  };
-});
-
-const divStyle = computed<CSSProperties>(() => {
-  return {
-    width: `20px`,
-    transition: `width 2s ease`,
-  };
-});
-
-function testClick() {
-  gridNumber.value = 100;
-  console.log("哈哈");
-}
 </script>
 
 <template>
-  <div class="w-[500px] border-red-900 border-[2px] hover:translate-x-[10px]">
-    <div :style="testWrapper">
-      <div :style="divStyle" class="h-[20px]" v-for="item in 10">
-        <div>你</div>
-      </div>
-    </div>
+  <div class="h-[500px] w-[500px]">
+    <div class="sticky top-[20px]">韩振方</div>
   </div>
-
-  <button @click="testClick">
-    <span>点我切换布局</span>
-  </button>
+  <div>sss</div>
 </template>
 <style lang="less">
 #app {
