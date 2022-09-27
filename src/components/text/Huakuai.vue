@@ -18,7 +18,7 @@ const data = ref<Array<DataType>>([
 ]);
 
 //NOTE: 下面是初始化时的滑块位置，后期有额外的tab，需要额外添加
-const INIT_OFFSET: number[] = [32, 88];
+const INIT_OFFSET:number[]=[32, 88];
 const initOffset = ref<number>(INIT_OFFSET[2]);
 const wrapper = ref<HTMLElement>();
 const currentItemStyle = ref();
@@ -26,7 +26,7 @@ const currentItemStyle = ref();
 const huakuaiStyle = computed(() => {
   const offset = initOffset.value;
   return {
-    transition: `all 2s`,
+    transition: `all .1s`,
     transform: `translateX(${offset - 15}px)`,
   };
 });
@@ -38,7 +38,7 @@ function handelClickItem(currentItem: Action) {
   const tabs = tabsList.slice(0, tabsList.length - 1);
   //3.用传入的索引值来拿到用户点击的元素dom树
   const userClickItem = tabs[currentItem];
-  console.dir(userClickItem);
+  console.dir( userClickItem);
   //4.滑块应在元素的中间,这里需要拿到offsetLeft的宽度和当前宽度的一半（clientWidth的1/2），作为滑块初始化时候的offset
   const { offsetLeft, clientWidth } = userClickItem;
   const calcOffset = offsetLeft + clientWidth / 2;
@@ -51,8 +51,8 @@ function handelClickItem(currentItem: Action) {
     .forEach((itme) => (itme.style.fontSize = "small"));
 }
 
-function userTouchStart(event: TouchEvent) {
-  console.log("event", event);
+function userTouchStart (event:TouchEvent){
+console.log('event',event)
 }
 
 onMounted(() => {
@@ -64,7 +64,10 @@ onMounted(() => {
 
 <template>
   <div
-    class="flex relative p-[20px] m-[10px] border-solid border-2 border-slate-800"
+    class="flex  relative
+    p-[20px]
+    m-[10px]
+    border-solid border-2 border-slate-800"
     ref="wrapper"
   >
     <div
@@ -76,6 +79,9 @@ onMounted(() => {
     >
       {{ item.name }}
     </div>
-    <div class="absolute top-[40px]" :style="huakuaiStyle">韩</div>
+    <div 
+    class=
+    "absolute top-[40px]" 
+    :style="huakuaiStyle">韩</div>
   </div>
 </template>
