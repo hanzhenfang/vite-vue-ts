@@ -48,7 +48,7 @@ function testClick() {
   <div class="w-[500px] border-red-900 border-[2px] hover:translate-x-[10px]">
     <div :style="testWrapper">
       <div :style="divStyle" class="h-[20px]" v-for="item in 10">
-        <div>你</div>
+        reset 之前
       </div>
     </div>
   </div>
