@@ -19,48 +19,31 @@ import Shuangye from "./components/text/shuangye.vue";
 import createToast from "./components/toast/createToast";
 import Toast from "./components/toast/createToast";
 import OffsetWidth from "./components/toast/offsetWidth.vue";
+import textTruncate from "./textTruncate/textTruncate.vue";
+import PhotoName from "./components/PhotoName.vue";
 
 import { ToastCreator } from "./components/toast/toastCreator";
 
-const gridNumber = ref<number>(5);
-
-const testWrapper = computed<CSSProperties>(() => {
-  return {
-    display: `grid`,
-    gridTemplateColumns: `repeat(${gridNumber.value},20px)`,
-  };
-});
-
-const divStyle = computed<CSSProperties>(() => {
-  return {
-    width: `20px`,
-    transition: `width 2s ease`,
-  };
-});
-
-function testClick() {
-  gridNumber.value = 100;
-  console.log("哈哈");
+interface imgType {
+  name: string;
+  mime: string;
 }
+
+const imageInfo = ref<imgType>({
+  name: "好好好还好韩",
+  mime: "image",
+});
 </script>
 
 <template>
-  <div class="w-[500px] border-red-900 border-[2px] hover:translate-x-[10px]">
-    <div :style="testWrapper">
-      <div :style="divStyle" class="h-[20px]" v-for="item in 10">
-        reset 之前
-      </div>
-    </div>
+  <div class="w-[100px] border-[1px]">
+    <PhotoName :photo-type="imageInfo.mime" :photo-name="imageInfo.name" />
   </div>
-
-  <button @click="testClick">
-    <span>点我切换布局</span>
-  </button>
 </template>
 <style lang="less">
 #app {
-  // width: 100vw;
-  // height: 100vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
