@@ -1,3 +1,13 @@
 <script setup lang="ts">
-const test: string = "这是我的一个commit";
+import { ref, onMounted } from "vue";
+const count = ref<number>(1);
+onMounted(async () => {
+  count.value++;
+});
 </script>
+
+<template>
+  <div>
+    {{ count }}
+  </div>
+</template>
