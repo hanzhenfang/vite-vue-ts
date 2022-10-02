@@ -7,7 +7,5 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
-    {{ count }}
-  </div>
+  <div>韩振方{{ count }}</div>
 </template>
