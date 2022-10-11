@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, type CSSProperties } from "vue";
+import {
+  ref,
+  computed,
+  watch,
+  onMounted,
+  nextTick,
+  type CSSProperties,
+} from "vue";
 import formTextVue from "./components/formText.vue";
 import HelloWorld from "./components/HelloWorld.vue";
 import Modal from "./components/modal.vue";
@@ -33,12 +40,49 @@ const imageInfo = ref<imgType>({
   name: "好好好还好韩",
   mime: "image",
 });
+
+const aaElement = ref<HTMLDivElement>();
+
+function getElementFromPoint() {
+  const _element = document.elementFromPoint(370, 44);
+  console.log("_element", _element);
+}
+
+onMounted(() => {
+  console.log("aaElement.value", aaElement.value);
+});
+
+function getAllElementZIndex() {
+  const elementArr: Array<HTMLElement> = Array.from(
+    document.body.querySelectorAll("*")
+  );
+  console.log("elementArr", elementArr);
+  const zIndexArr = elementArr.map((item) => {
+    let zindex = Number(window.getComputedStyle(item).zIndex) || 0;
+    return zindex;
+  });
+  console.log("zIndexArr", zIndexArr);
+}
+
+nextTick(() => {
+  getAllElementZIndex();
+});
 </script>
 
 <template>
-  <div class="w-[100px] border-[1px]">
+  <div class="border-t-[4px] mt-[10px]">xx</div>
+  <button @click="getElementFromPoint">点击获取</button>
+  <!-- <div class="w-[100px] border-[1px]">
     <PhotoName :photo-type="imageInfo.mime" :photo-name="imageInfo.name" />
+  </div> -->
+  <div class="overflow-scroll">
+    <div class="h-[100px]">
+      <div class="sticky">你好</div>
+      <div>你不会</div>
+    </div>
+    <div v-for="(item, index) in 10">{{ item + index }}</div>
   </div>
+  <div class="absolute z-[1000]">izzzzzzzzzzzindex</div>
 </template>
 <style lang="less">
 #app {
