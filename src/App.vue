@@ -24,6 +24,8 @@ import PhotoName from "./components/PhotoName.vue";
 
 import { ToastCreator } from "./components/toast/toastCreator";
 
+import GridTest from "./components/grid/gridTest.vue";
+
 interface imgType {
   name: string;
   mime: string;
@@ -36,9 +38,7 @@ const imageInfo = ref<imgType>({
 </script>
 
 <template>
-  <div class="w-[100px] border-[1px]">
-    <PhotoName :photo-type="imageInfo.mime" :photo-name="imageInfo.name" />
-  </div>
+  <GridTest />
 </template>
 <style lang="less">
 #app {
