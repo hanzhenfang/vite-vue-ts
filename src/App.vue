@@ -21,11 +21,12 @@ import Toast from "./components/toast/createToast";
 import OffsetWidth from "./components/toast/offsetWidth.vue";
 import textTruncate from "./textTruncate/textTruncate.vue";
 import PhotoName from "./components/PhotoName.vue";
-
 import { ToastCreator } from "./components/toast/toastCreator";
 
+import NameTest from "./components/nameTest/nameTest.vue";
 import GridTest from "./components/grid/gridTest.vue";
 
+import Father from "./tongxin/father.vue";
 interface imgType {
   name: string;
   mime: string;
@@ -38,7 +39,9 @@ const imageInfo = ref<imgType>({
 </script>
 
 <template>
-  <GridTest />
+  <div class="w-[390px] h-[844px] border-[2px] border-red-800">
+    <Father />
+  </div>
 </template>
 <style lang="less">
 #app {
