@@ -27,20 +27,64 @@ import NameTest from "./components/nameTest/nameTest.vue";
 import GridTest from "./components/grid/gridTest.vue";
 
 import Father from "./tongxin/father.vue";
-interface imgType {
-  name: string;
-  mime: string;
+
+const isMouseDown = ref<boolean>(false);
+const mouseInitPageX = ref<number>(0);
+const distanceX = ref<number>(0);
+
+function userMouseDown(event: MouseEvent) {
+  isMouseDown.value = true;
+  console.log("event.x", event.x);
+  mouseInitPageX.value = event.x;
 }
 
-const imageInfo = ref<imgType>({
-  name: "好好好还好韩",
-  mime: "image",
+function userMouseUp(event: MouseEvent) {
+  isMouseDown.value = false;
+}
+
+function userMouseMoveing(event: MouseEvent) {
+  if (!isMouseDown.value) return;
+  distanceX.value = mouseInitPageX.value - event.x;
+}
+
+const fileListStyle = computed<CSSProperties>(() => {
+  return {
+    maxWidth: `700px`,
+    width: `calc(495px - ${distanceX.value}px)`,
+    height: `100%`,
+  };
+});
+
+const preViewStyle = computed<CSSProperties>(() => {
+  return {
+    maxWidth: `700px`,
+    width: `calc(495px + ${distanceX.value}px)`,
+    height: `100%`,
+  };
+});
+
+const dragSection = computed<CSSProperties>(() => {
+  return {
+    transform: `translateX(${distanceX.value}px)`,
+  };
 });
 </script>
 
 <template>
-  <div class="w-[390px] h-[844px] border-[2px] border-red-800">
-    <Father />
+  <div
+    @mousemove="userMouseMoveing($event)"
+    class="w-[1000px] h-[844px] flex border-[2px] border-red-800"
+  >
+    <div :style="fileListStyle">和</div>
+    <div
+      class="w-[10px] bg-[red]"
+      @mouseup="userMouseUp($event)"
+      @mousedown="userMouseDown($event)"
+      :style="dragSection"
+    ></div>
+    <div :style="isMouseDown ? preViewStyle : {}">
+      <img class="w-full h-full object-contain" src="./陈宏州/猫咪.webp" />
+    </div>
   </div>
 </template>
 <style lang="less">
